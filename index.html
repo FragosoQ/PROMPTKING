@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-g" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prompt Engineering Practice Pad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .firework {
+        position: absolute;
+      }
+      .firework::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: 10px;
+        height: 20px;
+        opacity: 0;
+        background-image: radial-gradient(circle, #fff 1px, transparent 1px),
+                          radial-gradient(circle, #fff 1px, transparent 1px);
+        background-size: 5px 5px;
+        animation: firework-trail 0.5s ease-in-out forwards;
+      }
+      .firework::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow: -100px -50px #ffc, -80px -90px #ff9, 110px -20px #f99,
+                    90px -40px #f9f, -110px -100px #9ff, 50px -30px #99f,
+                    -40px -80px #9f9, -20px -50px #f99, 120px -60px #f9f,
+                    100px -100px #9ff;
+        animation: firework-explode 1s ease-out forwards;
+        opacity: 0;
+      }
+
+      @keyframes firework-trail {
+        0% { transform: translateY(0); opacity: 1; }
+        50% { opacity: 1; }
+        100% { transform: translateY(-200px); opacity: 0; }
+      }
+      @keyframes firework-explode {
+        0% { transform: scale(0.1); opacity: 1; }
+        80% { opacity: 1; }
+        100% { transform: scale(1.5); opacity: 0; }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.19.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-black text-gray-200">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
